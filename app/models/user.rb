@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
-  #TODO : Use bcrypt to store hashed passwords and authenticate users
- # users.password_hash in the database is a :string
+  has_many :users_books
+  has_many :books, through: :users_books
+
+
+
+
   include BCrypt
   validates :name, :email, :password, presence: true
   validates :name, uniqueness: true
@@ -23,6 +27,9 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  # def books
+  #   return "Write me please"
+  # end
 
 
 
