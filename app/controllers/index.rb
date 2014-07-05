@@ -55,3 +55,15 @@ post '/users' do
   login
   redirect to '/'
 end
+
+#----------- add-book -----------
+
+post '/add_book' do
+  current_user.books << Book.create(title: params[:book_title])
+  redirect to '/'
+end
+
+get '/list' do
+  @books = current_user.books
+  erb :list_books
+end

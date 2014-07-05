@@ -49,6 +49,11 @@ nav li{
   display: inline-block;
   margin-left: 30px;
 }
+
+nav li a{
+  text-decoration: none;
+  color: black;
+}
 nav input{
   color: black;
 }
@@ -131,5 +136,8 @@ input {
   background-color: red;
   display: block;
   margin:auto;
-  background-color: #F8F8F8
+  background-color: #F8F8F8;
+  min-height: 300px;
+  max-height: 800px;
+  overflow-y: scroll;
 }

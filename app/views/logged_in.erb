@@ -3,7 +3,7 @@
 <div class = 'login_container'>
   <h1>Welcome <%= current_user.name %>.</h1>
 
-  <form id="add-book" action="" method="post">
+  <form id="add-book" action="/add_book" method="post">
     <input type="text" name="book_title" placeholder="Book Title">
     <br>
     <input type="submit" class = 'submit' value="Add">
