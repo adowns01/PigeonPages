@@ -22,19 +22,11 @@ nav {
   height: 45px;
   width: 45px;
   background-color: #F8F8F8 ;
-    margin-left: 22px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-top: 2px;
+  margin-left: 22px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 2px;
 }
-
-/*nav h3{
-  font-family: 'Pacifico', cursive;
-  color: black;
-  font-size: 18pt;
-  padding-left: 20px;
-  display: inline;
-}*/
 
 nav img{
   height: 32px;
@@ -63,7 +55,7 @@ nav input{
 
 
 
-/*-----------LOGIN/SIGNUP------------------*/
+/*-----------LOGIN/SIGNUP/FORMS------------------*/
 .login_container {
   margin: 20px auto;
   width: 300px;
@@ -83,7 +75,7 @@ nav input{
   color: #687B85;
 }
 
-#sign-in input, #sign-up input{
+#sign-in input, #sign-up input, #add-book input{
   width: 290px;
   font-size: 20pt;
   border: none;
@@ -92,7 +84,7 @@ nav input{
   border-radius: 2px;
 }
 
-#sign-in .submit, #sign-up .submit{
+#sign-in .submit, #sign-up .submit, #add-book .submit{
   background-color: #FF9D4E;
   color: white;
   width: 300px;
@@ -128,3 +120,16 @@ input {
 }
 
 /*------------------------------------------*/
+
+
+
+.content {
+
+  width: 70%;
+  max-width: 750px;
+  min-width: 350px;
+  background-color: red;
+  display: block;
+  margin:auto;
+  background-color: #F8F8F8
+}
