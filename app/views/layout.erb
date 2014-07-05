@@ -17,14 +17,23 @@
   <% if current_user %>
 
   <nav>
-    <h3 style = "opacity: 1.0"> Pigeon Pages </h3>
+    <!-- <h3 style = "opacity: 1.0"> Pigeon Pages </h3> -->
+    <div class = 'circle'>
+      <img src ='/images/logo.png'>
+    </div>
+
     <ul>
+      <li>Add</li>
+      <li>List</li>
+      <li>Data</li>
       <li>
         <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
           <input name="_method" type="hidden" value="delete" />
           <input type="submit" value="Sign Out">
         </form>
       </li>
+
+
     </ul>
   </nav>
 
@@ -35,7 +44,7 @@
 
 
   <!-- <div class="container"> -->
-    <%= yield %>
+  <%= yield %>
   <!-- </div> -->
 </body>
 </html>
