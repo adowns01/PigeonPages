@@ -1,0 +1,25 @@
+
+  <h1>Sign Up</h1>
+
+  <form id="sign-up" method="post" action="/users">
+    <label class="label" for="name">Name</label>
+    <input type="text" name="name" placeholder="e.g., joe"
+    <%= erb :value, :locals => {:arg => :name} %>>
+    <br>
+
+    <label class="label" for="email">Email</label>
+    <input type="email" name="email" placeholder="e.g., me@example.com"
+    <%= erb :value, :locals => {:arg => :email} %>>
+    <br>
+
+    <label class="label" for="password">Password</label>
+    <input type="password" name="password" placeholder="6 or more characters">
+    <br>
+
+    <div class="submit"><input type="submit" value="Sign Up"></div>
+  </form>
+
+  <%= erb :display_errors %>
+
+  <% session.clear %>
+

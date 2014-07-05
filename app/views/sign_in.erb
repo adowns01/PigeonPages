@@ -1,0 +1,26 @@
+<div class = 'login_container'>
+
+  <img src ='/images/logo.png'>
+
+  <h1>Pigeon Pages</h1>
+  <form id="sign-in" method="post" action="/sessions">
+
+    <input type="email" name="email" placeholder="Email"
+    <%= erb :value, :locals => {:arg => :email} %>>
+    <br>
+
+    <input type="password" name="password" placeholder="Password">
+    <br>
+
+    <input type="submit" class = 'submit' value="Login">
+  </form>
+
+  <p class = 'new_user'><a href = '/users/new'>new user?</a></p>
+
+
+
+</div>
+
+<%= session[:errors]%>
+
+<%session.clear%>

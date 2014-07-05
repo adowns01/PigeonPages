@@ -1,0 +1,115 @@
+
+
+nav {
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+}
+
+nav .brand, nav .brand a {
+  margin-left: 25px;
+  font-size: 18pt;
+  text-decoration: none;
+  color: #444;
+  width: 60%;
+  display: inline-block;
+}
+
+nav ul {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+}
+
+nav li {
+  margin-right: 25px;
+  display: inline;
+}
+
+nav li a {
+  color: gray;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  text-decoration: underline;
+}
+
+
+input {
+  margin-bottom: 10px;
+}
+
+.errors {
+  color: red;
+}
+
+/*form.quirks {
+  display: inline-block;
+}*/
+
+.submit {
+  text-align: center;
+}
+
+#sign-out input {
+  border:none;
+  background:none;
+  font-weight: :bold;
+}
+
+body {
+  background-image: url('/images/white_bookshelf.jpg');
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-weight: lighter;
+}
+
+
+/*-----------LOGIN------------------*/
+.login_container {
+  margin: 20px auto;
+  width: 300px;
+  /*border: 1px dotted black;*/
+  margin-top: 200px;
+}
+
+.login_container img{
+  width: 50%;
+  display: block;
+  margin:auto;
+  margin-bottom: 5px;
+}
+
+.login_container h1{
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  color: #687B85;
+}
+
+#sign-in input{
+  width: 290px;
+  font-size: 20pt;
+  border: none;
+  font-weight: lighter;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+#sign-in .submit {
+  background-color: #FF9D4E;
+  color: white;
+  width: 300px;
+  margin-bottom: 0px;
+}
+
+.new_user a{
+  color: #FF9D4E;
+  text-decoration: none;
+}
+
+.new_user {
+  text-align: right;
+  font-style: italic;
+}
+
+/*------------------------------------------*/
