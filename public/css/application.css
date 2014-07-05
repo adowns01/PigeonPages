@@ -11,30 +11,54 @@ nav {
   width: 100%;
   height: 50px;
   font-weight: bold;
-  /*background-color: #A5B1B8;*/
+  background-color: #FF9D4E ;
   position: relative;
   margin-top: 0px;
-  border-bottom: solid #FF9D4E 1px;
+  /*border-bottom: solid #FF9D4E 1px;*/
   /*border-top: solid #FF9D4E 5px;*/
 
 }
+.circle {
+  height: 45px;
+  width: 45px;
+  background-color: #F8F8F8 ;
+    margin-left: 22px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 2px;
+}
 
-nav h3{
+/*nav h3{
   font-family: 'Pacifico', cursive;
   color: black;
   font-size: 18pt;
   padding-left: 20px;
   display: inline;
+}*/
+
+nav img{
+  height: 32px;
+  margin-top: 8px;
+  margin-left: 3px;
 }
 
-
-nav ul {
+nav ul{
   display: inline-block;
   margin-right: 25px;
   list-style-type: none;
-  font-size: 9pt;
+  font-size: 16pt;
   float:right;
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-weight: lighter;
+}
 
+nav li{
+  display: inline-block;
+  margin-left: 30px;
+}
+nav input{
+  color: black;
 }
 
 
