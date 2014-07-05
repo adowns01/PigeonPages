@@ -40,9 +40,7 @@ input {
   margin-bottom: 10px;
 }
 
-.errors {
-  color: red;
-}
+
 
 /*form.quirks {
   display: inline-block;
@@ -86,7 +84,7 @@ body {
   color: #687B85;
 }
 
-#sign-in input{
+#sign-in input, #sign-up input{
   width: 290px;
   font-size: 20pt;
   border: none;
@@ -95,7 +93,7 @@ body {
   border-radius: 2px;
 }
 
-#sign-in .submit {
+#sign-in .submit, #sign-up .submit{
   background-color: #FF9D4E;
   color: white;
   width: 300px;
@@ -112,4 +110,8 @@ body {
   font-style: italic;
 }
 
+.errors {
+  text-align: center;
+  color: black;
+}
 /*------------------------------------------*/

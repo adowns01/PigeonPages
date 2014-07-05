@@ -14,6 +14,7 @@
 
     <input type="submit" class = 'submit' value="Login">
   </form>
+  <p class = 'errors'><%= session[:errors]%></p>
 
   <p class = 'new_user'><a href = '/users/new'>new user?</a></p>
 
@@ -21,6 +22,5 @@
 
 </div>
 
-<%= session[:errors]%>
 
 <%session.clear%>

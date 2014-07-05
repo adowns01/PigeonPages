@@ -1,25 +1,27 @@
+<div class = 'login_container'>
+  <img src ='/images/logo.png'>
 
-  <h1>Sign Up</h1>
+  <h1>Pigeon Pages</h1>
 
   <form id="sign-up" method="post" action="/users">
-    <label class="label" for="name">Name</label>
-    <input type="text" name="name" placeholder="e.g., joe"
+    <input type="text" name="name" placeholder="Username"
     <%= erb :value, :locals => {:arg => :name} %>>
     <br>
 
-    <label class="label" for="email">Email</label>
-    <input type="email" name="email" placeholder="e.g., me@example.com"
+    <input type="email" name="email" placeholder="Email"
     <%= erb :value, :locals => {:arg => :email} %>>
     <br>
 
-    <label class="label" for="password">Password</label>
-    <input type="password" name="password" placeholder="6 or more characters">
+    <input type="password" name="password" placeholder="Password">
     <br>
 
-    <div class="submit"><input type="submit" value="Sign Up"></div>
+    <input type="submit" class = 'submit' value="Sign Up">
+    <%= erb :display_errors %>
+
+    <p class = 'new_user'><a href = '/'>have an account?</a></p>
   </form>
 
-  <%= erb :display_errors %>
 
   <% session.clear %>
 
+</div>

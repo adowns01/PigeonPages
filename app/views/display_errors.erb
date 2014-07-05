@@ -1,5 +1,5 @@
 <% if session[:errors] %>
   <% session[:errors].each do |error, message| %>
-    <p style = "color: red"><%= error %> <%= message %></p>
+    <p class = 'errors'><%= error %> <%= message %></p>
   <% end %>
 <% end %>
