@@ -1,7 +1,10 @@
 <div class = 'content'>
 
 <% @books.each do |book| %>
-<p><%= book.title %> </p>
+  <div class = 'book'>
+    <p class = 'book_title'><%= book.title %> (<%= book.publication_year %>)</p>
+    <p class = 'author'><%= book.author %></p>
+  </div>
 <%end%>
 
 </div>
