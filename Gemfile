@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
+# BOOKS!
+gem 'goodreads'
+gem 'json'
+
 # PostgreSQL driver
 gem 'pg'
 
