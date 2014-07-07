@@ -21,4 +21,33 @@ helpers do
       session[:errors] = "wrong username and/or password"
     end
   end
+
+  def num_pages
+    pages = 0
+
+    current_user.books.each do |book|
+      if book.pages.is_a?(Integer)
+        pages += book.pages
+      end
+    end
+
+    return pages
+  end
+
+  def e_book_data
+
+    book_info = {
+      ebook: 0,
+      paper: 0
+    }
+
+    current_user.books.each do |book|
+      if book.is_ebook
+        book_info[:ebook] += 1
+      else
+        book_info[:paper] += 1
+      end
+    end
+    return book_info
+  end
 end

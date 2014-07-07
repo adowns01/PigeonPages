@@ -9,19 +9,24 @@ class Book < ActiveRecord::Base
 
   def self.get_book_info(title)
 
+
+
     book = GR.book_by_title(title).to_json
     book = JSON.parse(book)
+    p book
+
     book_info = {
       title: book["title"],
       author: book["authors"]["author"]["name"],
       publication_year: book["work"]["original_publication_year"].to_i,
       is_ebook: book["is_ebook"]=="true",
-      image: book["image_url"]
+      image: book["image_url"],
+      pages: book["num_pages"]
     }
-
     return book_info
 
-end
+  end
+
 
 end
 
