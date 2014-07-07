@@ -79,3 +79,17 @@ end
 #   @book = JSON.parse(book)
 #   erb :book_info
 # end
+
+#----------- see data -----------
+
+get '/data' do
+  @num_books = current_user.books.count
+  @num_pages = num_pages()
+  erb :list_data
+end
+
+get '/ebooks' do
+  content_type :json
+  info = e_book_data();
+  return info.to_json
+end
