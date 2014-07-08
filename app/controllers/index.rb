@@ -100,3 +100,24 @@ get '/publication_year' do
   p info
   return info.to_json
 end
+
+#---------- edit book info -------
+
+get '/book/:id' do
+  @book = Book.find(params[:id])
+  erb :edit_book
+end
+
+post '/book/:id' do
+  book_info = {
+    title: params[:title],
+    author: params[:author],
+    publication_year: params[:publication_year],
+    pages: params[:num_pages],
+    is_ebook: params[:ebook] == "true"
+  }
+  book = Book.find(params[:id])
+  book.update_attributes(book_info)
+
+  redirect to '/list'
+end

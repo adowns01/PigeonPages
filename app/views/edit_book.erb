@@ -1,0 +1,40 @@
+
+<div class = 'content'>
+
+
+  <form id="edit-book" method="post" action="/book/<%=@book.id%>">
+
+    <p class = 'label'>Title<p>
+    <input class = 'edit-book' type="text" name="title" value="<%=@book.title%>">
+    <br>
+
+    <p class = 'label'>Author<p>
+    <input class = 'edit-book' type="text" name="author" value="<%=@book.author%>"><br>
+
+    <p class = 'label'>Publication Year<p>
+    <input class = 'edit-book' type="text" name="publication_year" value="<%=@book.publication_year%>"><br>
+
+    <p class = 'label'>Number of Pages<p>
+    <input class = 'edit-book' type="text" name="num_pages" value="<%=@book.pages%>"><br>
+
+    <p class = 'label'>ebook?<p>
+    <input class = 'edit-book' type="text" name="ebook" value="<%=@book.is_ebook%>"><br>
+
+
+    <input type="submit" class = 'edit-book submit' value="Save">
+  </form>
+
+
+
+</div>
+
+
+
+<!--     book_info = {
+      title: book["title"],
+      author: book["authors"]["author"]["name"],
+      publication_year: book["work"]["original_publication_year"].to_i,
+      is_ebook: book["is_ebook"]=="true",
+      image: book["image_url"],
+      pages: book["num_pages"]
+    } -->
