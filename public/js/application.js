@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-  getEbookData();
   getPublicationYearData();
+  getEbookData();
 
 });
 
@@ -29,7 +29,6 @@ var parsePublicationYears = function(data){
 
   for (var i=0; i<data.length; i++){
   var location = parseInt((Number(data[i]) % 1930)/10 )
-    console.log(location)
     decades[location][1] += 1
   }
   return decades
@@ -46,7 +45,7 @@ var graphPublicationYearData = function(data){
     colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
 
     title: {
-      text: 'Number of Books by Publication Year'
+      text: 'Number of Books Read by Publication Year'
     },
     xAxis: {
       type: 'category',
@@ -68,7 +67,7 @@ var graphPublicationYearData = function(data){
       enabled: false
     },
     tooltip: {
-      pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>',
+      pointFormat: '<b>{point.y:.1f} books</b>',
     },
     series: [{
       name: 'Population',
@@ -100,8 +99,6 @@ var getEbookData = function(){
   })
   ajaxRequest.success(function(data){
     ebook_data = [['ebook', data.ebook], ['paper', data.paper]]
-    console.log(ebook_data)
-
     graphEbookData(ebook_data)
   })
 }
@@ -119,7 +116,7 @@ var graphEbookData= function(data){
             text: ''
           },
           tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '<b>{point.percentage:.1f}%</b>'
           },
           plotOptions: {
             pie: {
