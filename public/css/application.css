@@ -138,7 +138,7 @@ input {
   margin: auto;
   background-color: #F8F8F8;
   min-height: 300px;
-  max-height: 700px;
+  max-height: 550px;
   overflow-y: scroll;
   margin-top: 100px;
 }

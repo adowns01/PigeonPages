@@ -50,4 +50,11 @@ helpers do
     end
     return book_info
   end
+
+  def publication_year_data
+
+    current_user.books.map! do |book|
+      book.publication_year
+    end
+  end
 end
