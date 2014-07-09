@@ -8,6 +8,7 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 # Require gems we care about
 require 'goodreads'
 require 'json'
+require 'dotenv'
 
 require 'rubygems'
 
@@ -47,3 +48,6 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+Dotenv.load
+GR = Goodreads::Client.new(:api_key => ENV['API_KEY'], :api_secret => ENV['API_SECRET'])

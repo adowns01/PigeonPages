@@ -4,6 +4,7 @@ ruby '1.9.3'
 # BOOKS!
 gem 'goodreads'
 gem 'json'
+gem 'dotenv'
 
 # PostgreSQL driver
 gem 'pg'
