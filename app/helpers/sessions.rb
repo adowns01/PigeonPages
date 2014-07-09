@@ -57,4 +57,21 @@ helpers do
       book.publication_year
     end
   end
+
+  def longest_book()
+    return current_user.books.maximum('pages')
+  end
+
+  def shortest_book()
+    return current_user.books.minimum('pages')
+  end
+
+  def popular_authors()
+    authors = current_user.books.group(:author).count
+    return authors.sort_by {|k,v| v}.reverse[0..4]
+  end
+
+
+
+
 end

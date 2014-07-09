@@ -85,6 +85,10 @@ end
 get '/data' do
   @num_books = current_user.books.count
   @num_pages = num_pages()
+  @most_pages = longest_book();
+  @fewest_pages = shortest_book();
+  @popular_authors = popular_authors();
+  puts "POPULAR AUTHORS #{@popular_authors}"
   erb :list_data
 end
 
