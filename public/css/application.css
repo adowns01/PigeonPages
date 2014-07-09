@@ -14,8 +14,6 @@ nav {
   background-color: #FF9D4E ;
   position: relative;
   margin-top: 0px;
-  /*border-bottom: solid #FF9D4E 1px;*/
-  /*border-top: solid #FF9D4E 5px;*/
 
 }
 .circle {
@@ -35,28 +33,54 @@ nav img{
 }
 
 nav ul{
-  display: inline-block;
-  margin-right: 25px;
   list-style-type: none;
   font-size: 16pt;
-  float:right;
-  color: black;
+  float: right;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   font-weight: lighter;
 }
 
 nav li{
-  display: inline-block;
+  display: inline;
   margin-left: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-weight: lighter;
 }
 
 nav li a{
   text-decoration: none;
-  color: black;
+  color: #687B85;
 }
 nav input{
-  color: black;
+  color: #687B85;
+  font-size: 16pt;
+  width: 100px;
+  padding-left: 0px;
 }
+
+nav form {
+  display: inline;
+}
+
+
+@media screen and (max-width: 650px){
+  nav ul {
+    font-size: 12pt;
+  }
+
+  nav li {
+    margin-left: 20px
+  }
+
+  nav input {
+    font-size: 12pt;
+  }
+
+
+
+}
+
+
 
 
 
