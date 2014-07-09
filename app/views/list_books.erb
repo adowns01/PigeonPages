@@ -2,7 +2,12 @@
 
 <% @books.each do |book| %>
   <div class = 'book'>
-    <p class = 'book_title'><%= book.title %> (<%= book.publication_year %>)</p>
+
+
+
+    <a class = 'text-dec-off' href = '/book/<%=book.id%>'><p class = 'book_title'><%= book.title %> (<%= book.publication_year %>)</p></a>
+
+
     <p class = 'author'><%= book.author %></p>
   </div>
 <%end%>

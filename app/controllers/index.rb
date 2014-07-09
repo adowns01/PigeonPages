@@ -121,3 +121,8 @@ post '/book/:id' do
 
   redirect to '/list'
 end
+
+post '/delete/:id' do
+  Book.find(params[:id]).destroy
+  redirect to '/list'
+end
