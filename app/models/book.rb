@@ -13,11 +13,10 @@ class Book < ActiveRecord::Base
 
     book = GR.book_by_title(title).to_json
     book = JSON.parse(book)
-    p book
 
     book_info = {
       title: book["title"],
-      author: book["authors"]["author"]["name"],
+      author: self.author(book),
       publication_year: book["work"]["original_publication_year"].to_i,
       is_ebook: book["is_ebook"]=="true",
       image: book["image_url"],
@@ -27,11 +26,12 @@ class Book < ActiveRecord::Base
 
   end
 
+  def self.author(book)
+    if book["authors"]["author"].is_a? (Array)
+      return book["authors"]["author"][0]["name"]
+    else
+      return book["authors"]["author"]["name"]
+    end
+  end
 
 end
-
-
-    # add_column :books, :author, :string
-    # add_column :books, :publication_year, :integer
-    # add_column :books, :image, :string
-    # add_column :books, :is_ebook, :boolean
