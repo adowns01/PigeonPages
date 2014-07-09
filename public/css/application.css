@@ -9,7 +9,7 @@ body {
 
 nav {
   width: 100%;
-  height: 50px;
+  height: 60px;
   font-weight: bold;
   background-color: #FF9D4E ;
   position: relative;
@@ -25,7 +25,7 @@ nav {
   margin-left: 22px;
   border-radius: 50%;
   display: inline-block;
-  margin-top: 2px;
+  margin-top: 5px;
 }
 
 nav img{
@@ -80,7 +80,7 @@ nav input{
   color: #687B85;
 }
 
-#sign-in input, #sign-up input, #add-book input{
+#sign-in input, #sign-up input, #add-book input, input{
   width: 290px;
   font-size: 20pt;
   border: none;
@@ -89,7 +89,7 @@ nav input{
   border-radius: 2px;
 }
 
-#sign-in .submit, #sign-up .submit, #add-book .submit{
+#sign-in .submit, #sign-up .submit, #add-book .submit, .submit{
   background-color: #FF9D4E;
   color: white;
   width: 300px;
@@ -138,9 +138,9 @@ input {
   margin: auto;
   background-color: #F8F8F8;
   min-height: 300px;
-  max-height: 550px;
+  max-height: 610px;
   overflow-y: scroll;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .book {
@@ -159,3 +159,15 @@ input {
   color: #FF9D4E;
 }
 
+/*----------EDIT BOOKS *----------------*/
+
+.edit-book{
+  width: 90%;
+}
+#edit-book, #delete-book{
+  margin-left: 30px;
+}
+
+.text-dec-off{
+  text-decoration: none;
+}
