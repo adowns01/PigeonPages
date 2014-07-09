@@ -1,4 +1,3 @@
-GR = Goodreads::Client.new(:api_key => "knKbRPZ09o4ZQoez2KGg", :api_secret => "zbAuN1PwKTxf6gOBop9hy8QS7R0atdPfEPisq9X6iM")
 
 
 class Book < ActiveRecord::Base
