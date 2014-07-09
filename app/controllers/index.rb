@@ -87,9 +87,14 @@ get '/data' do
   @num_pages = num_pages()
   @most_pages = longest_book();
   @fewest_pages = shortest_book();
-  @popular_authors = popular_authors();
-  puts "POPULAR AUTHORS #{@popular_authors}"
+
   erb :list_data
+end
+
+get '/popular_authors' do
+  content_type :json
+  info = popular_authors();
+  return info.to_json
 end
 
 get '/ebooks' do

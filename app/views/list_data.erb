@@ -1,19 +1,17 @@
-<div class = 'content'>
-  <p>Total books: <%= @num_books %> </p>
-  <p>Total pages: <%= @num_pages %> </p>
-  <p>Longest Book: <%= @most_pages %> pages </p>
-  <p>Shortest Book: <%= @fewest_pages %> pages </p>
-
-  <!-- TURN THIS INTO A BAR GRAPH -->
-  <p>Most popular authors</p>
-  <% @popular_authors.each do |author| %>
-    <p><%=author[0]%>: <%=author[1]%> books </p>
-  <%end%>
+<div class = 'data_container'>
+  <div class = 'stats'>
+  <div class = 'stat'><p>Total books<br><%= @num_books %></p></div>
+  <div class = 'stat'><p>Total pages<br><%= @num_pages %></p></div>
+  <div class = 'stat'><p>Longest Book<br><%= @most_pages %> pages </p></div>
+  <div class = 'stat'><p>Shortest Book<br><%= @fewest_pages %> pages </p></div>
+</div>
 
 
-  <div id="publication_year" style="width:100%; height:300px;"></div>
-  <br><br><br>
-  <div id="container" style="width:100%; height:300px;"></div><br><br>
+
+  <div id="popular_authors" class = "graph" style="width:100%; height:300px;"></div>
+
+  <div id="publication_year" class = "graph" style="width:100%; height:300px;"></div>
+  <div id="container"  class = "graph" style="width:100%; height:300px;"></div>
 
 
 </div>
