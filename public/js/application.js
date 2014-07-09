@@ -2,8 +2,81 @@ $(document).ready(function () {
 
   getPublicationYearData();
   getEbookData();
+  getAuthorData();
 
 });
+
+
+var getAuthorData = function(){
+
+  var ajaxRequest = $.ajax({
+    url: '/popular_authors',
+    type: 'GET'
+  })
+  ajaxRequest.success(function(data){
+    console.log(data)
+    graphAuthorData(data)
+  })
+
+
+}
+
+
+var graphAuthorData = function(data){
+
+  $('#popular_authors').highcharts({
+    chart: {
+      type: 'column'
+    },
+    colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
+
+    title: {
+      text: 'Number of Books Read by Most Popular Authors'
+    },
+    xAxis: {
+      type: 'category',
+      labels: {
+        rotation: -45,
+        style: {
+          fontSize: '13px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Number of Books'
+      }
+    },
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+      pointFormat: '<b>{point.y:.1f} books</b>',
+    },
+    series: [{
+      name: 'Population',
+      data: data,
+      dataLabels: {
+        enabled: true,
+        rotation: -90,
+        color: '#FFFFFF',
+        align: 'right',
+        x: 4,
+        y: 10,
+        style: {
+          fontSize: '13px',
+          fontFamily: 'Verdana, sans-serif',
+          textShadow: '0 0 3px black'
+        }
+      }
+    }]
+  });
+}
+
+
+
 
 
 var getPublicationYearData = function(){
