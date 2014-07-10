@@ -11,7 +11,6 @@ var getAuthorData = function(){
     type: 'GET'
   })
   ajaxRequest.success(function(data){
-    console.log(data)
     graphAuthorData(data)
   })
 }
