@@ -1,4 +1,7 @@
 <div class = 'data_container'>
+
+<% if current_user.books.length > 0 %>
+
   <div class = 'stats'>
   <div class = 'stat'><p>Total books<br><%= @num_books %></p></div>
   <div class = 'stat'><p>Total pages<br><%= @num_pages %></p></div>
@@ -13,7 +16,12 @@
   <div id="publication_year" class = "graph" style="width:100%; height:300px;"></div>
   <div id="container"  class = "graph" style="width:100%; height:300px;"></div>
 
-
-</div>
   <script src="http://code.highcharts.com/highcharts.js"></script>
   <script src="/js/graphs.js"></script>
+
+  <% else %>
+    <h1 class = 'empty'>You have no books in your list yet.</h1>
+  <%end%>
+
+</div>
+
