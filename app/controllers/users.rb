@@ -13,7 +13,6 @@ post '/users' do
   }
 
   @user = User.create(user_info)
-  p @user
 
   if @user.invalid?
     session[:errors] = @user.errors

@@ -7,9 +7,6 @@ class Book < ActiveRecord::Base
 
 
   def self.get_book_info(title)
-
-
-    puts "ABOUT TO GET A BOOK"
     begin
     book = GR.book_by_title(title).to_json
     rescue Exception => e
@@ -18,8 +15,6 @@ class Book < ActiveRecord::Base
     end
 
     unless @error
-      puts "MY BOOK IS: "
-      p book
       book = JSON.parse(book)
 
       book_info = {

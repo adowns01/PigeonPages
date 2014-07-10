@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   def encrypt_password
-    puts "self.pass #{self.password}"
-    puts "password #{password}"
-    # self.password = password
+    # puts "self.pass #{self.password}"
+    # puts "password #{password}"
+    # # self.password = password
   end
 
   def password
