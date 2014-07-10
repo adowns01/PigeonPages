@@ -49,10 +49,10 @@ nav li{
 
 nav li a{
   text-decoration: none;
-  color: #687B85;
+  color: white;
 }
 nav input{
-  color: #687B85;
+  color: white;
   font-size: 16pt;
   width: 100px;
   padding-left: 0px;
@@ -185,9 +185,15 @@ input {
 
 /*----------EDIT BOOKS *----------------*/
 
-.edit-book{
+#edit-book input{
   width: 90%;
 }
+
+
+#delete-book input, #edit-book .submit{
+  width: 91%;
+}
+
 #edit-book, #delete-book{
   margin-left: 30px;
 }

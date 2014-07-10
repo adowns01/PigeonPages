@@ -62,8 +62,9 @@ end
 
 post '/add_book' do
   p book_info = Book.get_book_info(params[:book_title])
-  current_user.books << Book.create(book_info)
-  redirect to '/'
+  new_book = Book.create(book_info)
+  current_user.books << new_book
+  redirect to '/book/' + new_book.id.to_s
 end
 
 get '/list' do
@@ -71,14 +72,6 @@ get '/list' do
   erb :list_books
 end
 
-
-# get '/book_info/:isbn' do
-#   # erb :add_book
-#   isbn = params[:isbn]
-#   book = GR.book_by_isbn(isbn).to_json
-#   @book = JSON.parse(book)
-#   erb :book_info
-# end
 
 #----------- see data -----------
 
