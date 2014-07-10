@@ -53,9 +53,26 @@ helpers do
 
   def publication_year_data
 
-    current_user.books.map! do |book|
+    pub_years = current_user.books.map do |book|
       book.publication_year
     end
+
+    min = (pub_years.min/10)*10 # This rounds down to the nearest decade
+    max = (pub_years.max/10)*10
+
+    data = []
+
+    (((max-min)/10)+1).times do |i|
+      data << [(min + i*10).to_s, 0]
+    end
+
+    pub_years.each do |year|
+      location = (year % min)/10
+      data[location][1] += 1
+    end
+
+    return data
+
   end
 
   def longest_book()
