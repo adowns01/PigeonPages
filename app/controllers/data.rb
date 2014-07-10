@@ -22,7 +22,6 @@ end
 get '/publication_year' do
   content_type :json
   info = publication_year_data();
-  p info
   return info.to_json
 end
 

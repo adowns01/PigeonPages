@@ -37,7 +37,6 @@ post '/book/:id' do
 
   book = Book.find(params[:id])
   book.update_attributes(book_info)
-
   redirect to '/list'
 end
 
