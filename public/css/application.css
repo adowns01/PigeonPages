@@ -104,7 +104,7 @@ nav form {
   color: #687B85;
 }
 
-#sign-in input, #sign-up input, #add-book input, input{
+#sign-in input, #sign-up input, #add-book input, input, select{
   width: 290px;
   font-size: 20pt;
   border: none;
@@ -194,6 +194,14 @@ input {
   width: 91%;
 }
 
+select{
+  width: 92%;
+  background-color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-weight: lighter;
+  margin-bottom: 45px;
+}
+
 #edit-book, #delete-book{
   margin-left: 30px;
 }
@@ -254,4 +262,11 @@ input {
 
 .graph {
   margin-bottom: 25px;
+}
+
+.empty{
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  color: #687B85;
 }

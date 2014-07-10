@@ -12,7 +12,7 @@
     <%= erb :value, :locals => {:arg => :email} %>>
     <br>
 
-    <input type="password" name="password" placeholder="Password">
+    <input type="password" name="password" pattern=".{8,16}" required title = "Password must be 8 to 16 characters." placeholder="Password">
     <br>
 
     <input type="submit" class = 'submit' value="Sign Up">

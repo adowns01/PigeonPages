@@ -9,19 +9,29 @@ class Book < ActiveRecord::Base
   def self.get_book_info(title)
 
 
-
+    puts "ABOUT TO GET A BOOK"
+    begin
     book = GR.book_by_title(title).to_json
-    book = JSON.parse(book)
+    rescue Exception => e
+      return 0
+      @error = true
+    end
 
-    book_info = {
-      title: book["title"],
-      author: self.author(book),
-      publication_year: book["work"]["original_publication_year"].to_i,
-      is_ebook: book["is_ebook"]=="true",
-      image: book["image_url"],
-      pages: book["num_pages"]
-    }
-    return book_info
+    unless @error
+      puts "MY BOOK IS: "
+      p book
+      book = JSON.parse(book)
+
+      book_info = {
+        title: book["title"],
+        author: self.author(book),
+        publication_year: book["work"]["original_publication_year"].to_i,
+        is_ebook: book["is_ebook"]=="true",
+        image: book["image_url"],
+        pages: book["num_pages"]
+      }
+      return book_info
+    end
 
   end
 

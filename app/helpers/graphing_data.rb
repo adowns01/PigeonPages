@@ -26,45 +26,82 @@ helpers do
   end
 
   # gets publication yr data and parses for highcharts
-  def publication_year_data
+#   def publication_year_data
 
-    pub_years = get_publication_years();
-    min_decade = get_smallest_decade(pub_years);
-    max_decade = get_largest_decade(pub_years);
+#     pub_years = get_publication_years();
+#     min_decade = get_smallest_decade(pub_years);
+#     max_decade = get_largest_decade(pub_years);
+# puts "STUFF ABOVE"
+#     pub_year_data_container = set_up_data_structure(min_decade, max_decade)
+# puts "STUFF ABOVE"
+#     data = add_pub_year_data(pub_years, pub_year_data_container)
+#     p data
+#     puts "STUFF ABOVE"
+#     return data
+#   end
 
-    pub_year_data_container = set_up_data_structure(min_decade, max_decade)
+#   def add_pub_year_data(pub_years, pub_year_data_container)
+#     pub_years.each do |year|
+#       location = (year % min_decade)/10
+#       pub_year_data_container[location][1] += 1
+#     end
+#   end
 
-    data = add_pub_year_data(pub_years, pub_year_data_container)
+#   def set_up_data_structure(min_decade, max_decade)
+#     (((max_decade-min_decade)/10)+1).times do |i|
+#       data << [(min_decade + i*10).to_s, 0]
+#     end
+#   end
 
-    return data
-  end
+#   def get_publication_years
+#     current_user.books.map do |book|
+#       book.publication_year
+#     end
+#   end
 
-  def add_pub_year_data(pub_years, pub_year_data_container)
-    pub_years.each do |year|
-      location = (year % min_decade)/10
-      pub_year_data_container[location][1] += 1
-    end
-  end
+#   def get_smallest_decade(pub_years)
+#     (pub_years.min/10)*10
+#   end
 
-  def set_up_data_structure(min_decade, max_decade)
-    (((max_decade-min_decade)/10)+1).times do |i|
-      data << [(min_decade + i*10).to_s, 0]
-    end
-  end
+#   def get_largest_decade(pub_years)
+#     (pub_years.max/10)*10
+#   end
 
-  def get_publication_years
-    current_user.books.map do |book|
+
+
+
+
+
+
+def publication_year_data
+
+    pub_years = current_user.books.map do |book|
       book.publication_year
     end
-  end
 
-  def get_smallest_decade(pub_years)
-    (pub_years.min/10)*10
-  end
+    min = (pub_years.min/10)*10 # This rounds down to the nearest decade
+    max = (pub_years.max/10)*10
 
-  def get_largest_decade(pub_years)
-    (pub_years.max/10)*10
-  end
+    data = []
+
+    (((max-min)/10)+1).times do |i|
+      data << [(min + i*10).to_s, 0]
+    end
+
+    pub_years.each do |year|
+      location = (year % min)/10
+      data[location][1] += 1
+    end
+
+    return data
+
+end
+
+
+
+
+
+
 
 
   def longest_book()
