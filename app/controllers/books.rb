@@ -12,7 +12,7 @@ post '/add_book' do
 
   new_book = Book.create(book_info)
   current_user.books << new_book
-  redirect to '/book/' + new_book.id.to_s
+  redirect to '/list'
 end
 
 get '/list' do

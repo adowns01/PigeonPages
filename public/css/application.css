@@ -24,6 +24,8 @@ nav {
   border-radius: 50%;
   display: inline-block;
   margin-top: 5px;
+  float:left;
+
 }
 
 nav img{
@@ -38,6 +40,11 @@ nav ul{
   float: right;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   font-weight: lighter;
+}
+
+.username_list{
+  float: left;
+  color: white;
 }
 
 nav li{
@@ -56,6 +63,8 @@ nav input{
   font-size: 16pt;
   width: 100px;
   padding-left: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 nav form {
@@ -64,12 +73,13 @@ nav form {
 
 
 @media screen and (max-width: 650px){
-  nav ul {
+  nav ul{
     font-size: 12pt;
+    padding-left: 10px;
   }
 
   nav li {
-    margin-left: 20px
+    margin-left: 10px
   }
 
   nav input {
@@ -153,7 +163,7 @@ input {
 
 
 .content {
-
+  padding: 5px;
   width: 70%;
   max-width: 750px;
   min-width: 350px;
@@ -163,9 +173,15 @@ input {
   background-color: #F8F8F8;
   min-height: 300px;
   max-height: 610px;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
   margin-top: 60px;
+  /*overflow: hidden;*/
 }
+
+.overflow{
+  overflow-y: scroll;
+}
+
 
 .book {
   /*background-color: white;*/
@@ -177,6 +193,10 @@ input {
   font-size: 16pt;
   color: #687B85;
   margin-bottom: 0px;
+}
+
+.book_title:hover{
+  color: #B0B0B0 ;
 }
 
 .book .author {
@@ -274,4 +294,26 @@ select{
 .home {
   display: inline;
   color: #FF9D4E;
+}
+
+.username{
+/*  display: inline-block;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-weight: lighter;
+  color: white;
+  font-size: 16pt;
+  margin-left:5px;
+  margin-bottom:5px;*/
+  color: white;
+  margin-left: 0px;
+}
+
+@media screen and (max-width: 650px){
+  .username{
+    font-size: 12pt;
+    margin-bottom: 25px;
+  }
+
+
+
 }

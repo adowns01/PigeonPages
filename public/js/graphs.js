@@ -2,7 +2,19 @@ $(document).ready(function () {
   getPublicationYearData();
   getEbookData();
   getAuthorData();
+  getNumPagesData();
 });
+
+var getNumPagesData = function(){
+  var ajaxRequest = $.ajax({
+    url: '/num_pages',
+    type: 'GET'
+  })
+  ajaxRequest.success(function(data){
+    graphNumPagesData(data)
+  })
+}
+
 
 
 var getAuthorData = function(){
@@ -93,7 +105,56 @@ var graphAuthorData = function(data){
 
 
 
+var graphNumPagesData = function(data){
+  $('#num_pages').highcharts({
+    chart: {
+      type: 'column'
+    },
+    colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
 
+    title: {
+      text: 'Number of Pages per Book'
+    },
+    xAxis: {
+      type: 'category',
+      labels: {
+        rotation: -45,
+        style: {
+          fontSize: '13px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Number of Books'
+      },
+
+    },
+
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+      pointFormat: '<b>{point.y:.1f} books</b>',
+    },
+    series: [{
+      name: 'Population',
+      data: data,
+      dataLabels: {
+        enabled: true,
+        color: 'black',
+        align: 'center',
+        x: 4,
+        style: {
+          fontSize: '16px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    }]
+  });
+}
 
 
 

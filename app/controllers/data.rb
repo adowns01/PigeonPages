@@ -33,3 +33,9 @@ get '/publication_year' do
   return info.to_json
 end
 
+get '/num_pages' do
+  redirect to('/error') if !current_user
+  content_type :json
+  info = num_pages_graph();
+  return info.to_json
+end
