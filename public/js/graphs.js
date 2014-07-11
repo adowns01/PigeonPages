@@ -83,7 +83,7 @@ var graphAuthorData = function(data){
         align: 'center',
         x: 4,
         style: {
-          fontSize: '18px',
+          fontSize: '16px',
           fontFamily: 'Verdana, sans-serif'
         }
       }
@@ -144,7 +144,7 @@ var graphPublicationYearData = function(data){
         align: 'center',
         x: 4,
         style: {
-          fontSize: '18px',
+          fontSize: '16px',
           fontFamily: 'Verdana, sans-serif'
         }
       }
