@@ -12,7 +12,7 @@ post '/add_book' do
 
   new_book = Book.create(book_info)
   current_user.books << new_book
-  redirect to '/book/' + new_book.id.to_s
+  redirect to '/list'
 end
 
 get '/list' do
@@ -26,7 +26,7 @@ end
 #---------- edit book info -------
 
 get '/book/:id' do
-  redirect to('/error') if !current_user
+  redirect to('/error') if !current_user || !your_book?(params[:id])
 
   @book = Book.find(params[:id])
   erb :edit_book

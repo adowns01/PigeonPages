@@ -8,7 +8,7 @@ class Book < ActiveRecord::Base
 
   def self.get_book_info(title)
     begin
-    book = GR.book_by_title(title).to_json
+      book = GR.book_by_title(title).to_json
     rescue Exception => e
       return 0
       @error = true
@@ -23,9 +23,12 @@ class Book < ActiveRecord::Base
         publication_year: book["work"]["original_publication_year"].to_i,
         is_ebook: book["is_ebook"]=="true",
         image: book["image_url"],
-        pages: book["num_pages"]
+        pages: book["num_pages"],
+        author_gender: self.author_gender(book)
+        # author_country: self.author_country(book)
       }
-      return book_info
+
+
     end
 
   end
@@ -35,6 +38,32 @@ class Book < ActiveRecord::Base
       return book["authors"]["author"][0]["name"]
     else
       return book["authors"]["author"]["name"]
+    end
+  end
+
+  def self.author_gender(book)
+    author_id = self.author_id(book)
+
+    author = GR.author(author_id).to_json
+    author =  JSON.parse(author)
+    p author["gender"]
+  end
+
+  # def self.author_country(book)
+  #   author_id = self.author_id(book)
+
+  #   author = GR.author(author_id).to_json
+  #   author =  JSON.parse(author)
+  #   return nil if !author["hometown"]
+  #   p author["hometown"].split(" ").last
+  # end
+
+
+  def self.author_id(book)
+    if book["authors"]["author"].is_a? (Array)
+      return book["authors"]["author"][0]["id"]
+    else
+      return  book["authors"]["author"]["id"]
     end
   end
 

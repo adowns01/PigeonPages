@@ -2,7 +2,30 @@ $(document).ready(function () {
   getPublicationYearData();
   getEbookData();
   getAuthorData();
+  getNumPagesData();
+  getAuthorGenderData();
 });
+
+var getAuthorGenderData = function(){
+  var ajaxRequest = $.ajax({
+    url: '/author_gender',
+    type: 'GET'
+  })
+  ajaxRequest.success(function(data){
+    graphAuthorGenderData(data)
+  })
+}
+
+var getNumPagesData = function(){
+  var ajaxRequest = $.ajax({
+    url: '/num_pages',
+    type: 'GET'
+  })
+  ajaxRequest.success(function(data){
+    graphNumPagesData(data)
+  })
+}
+
 
 
 var getAuthorData = function(){
@@ -64,8 +87,10 @@ var graphAuthorData = function(data){
       min: 0,
       title: {
         text: 'Number of Books'
-      }
+      },
+
     },
+
     legend: {
       enabled: false
     },
@@ -77,15 +102,12 @@ var graphAuthorData = function(data){
       data: data,
       dataLabels: {
         enabled: true,
-        rotation: -90,
-        color: '#FFFFFF',
-        align: 'right',
+        color: 'black',
+        align: 'center',
         x: 4,
-        y: 10,
         style: {
-          fontSize: '13px',
-          fontFamily: 'Verdana, sans-serif',
-          textShadow: '0 0 3px black'
+          fontSize: '16px',
+          fontFamily: 'Verdana, sans-serif'
         }
       }
     }]
@@ -94,7 +116,56 @@ var graphAuthorData = function(data){
 
 
 
+var graphNumPagesData = function(data){
+  $('#num_pages').highcharts({
+    chart: {
+      type: 'column'
+    },
+    colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
 
+    title: {
+      text: 'Number of Pages per Book'
+    },
+    xAxis: {
+      type: 'category',
+      labels: {
+        rotation: -45,
+        style: {
+          fontSize: '13px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Number of Books'
+      },
+
+    },
+
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+      pointFormat: '<b>{point.y:.1f} books</b>',
+    },
+    series: [{
+      name: 'Population',
+      data: data,
+      dataLabels: {
+        enabled: true,
+        color: 'black',
+        align: 'center',
+        x: 4,
+        style: {
+          fontSize: '16px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    }]
+  });
+}
 
 
 
@@ -112,7 +183,7 @@ var graphPublicationYearData = function(data){
     colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
 
     title: {
-      text: 'Number of Books Read by Publication Year'
+      text: 'Number of Books by Publication Year'
     },
     xAxis: {
       type: 'category',
@@ -141,15 +212,12 @@ var graphPublicationYearData = function(data){
       data: data,
       dataLabels: {
         enabled: true,
-        rotation: -90,
-        color: '#FFFFFF',
-        align: 'right',
+        color: 'black',
+        align: 'center',
         x: 4,
-        y: 10,
         style: {
-          fontSize: '13px',
-          fontFamily: 'Verdana, sans-serif',
-          textShadow: '0 0 3px black'
+          fontSize: '16px',
+          fontFamily: 'Verdana, sans-serif'
         }
       }
     }]
@@ -170,7 +238,45 @@ var graphEbookData= function(data){
           },
           colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
           title: {
-            text: ''
+            text: 'Ebooks'
+          },
+
+          tooltip: {
+            pointFormat: '<b>{point.percentage:.1f}%</b>'
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+              }
+            }
+          },
+          series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: data
+          }]
+        });
+
+}
+
+var graphAuthorGenderData= function(data){
+
+  $('#author_gender').highcharts({
+    chart: {
+      plotBackgroundColor: null,
+            plotBorderWidth: 0,//null,
+            plotShadow: false
+          },
+          colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
+          title: {
+            text: 'Author Gender'
           },
           tooltip: {
             pointFormat: '<b>{point.percentage:.1f}%</b>'

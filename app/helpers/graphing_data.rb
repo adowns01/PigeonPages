@@ -1,4 +1,21 @@
 helpers do
+  def author_gender
+    data = [["male", 0],["female",0]]
+    books = current_user.books
+    books.each do |book|
+      if book.author_gender == "male"
+        data[0][1] += 1
+      elsif book.author_gender == "female"
+        data[1][1] += 1
+      end
+    end
+    return data
+  end
+
+
+
+
+
 
   # gets total number of pages the user has read
   def num_pages
@@ -83,6 +100,29 @@ helpers do
   def popular_authors()
     authors = current_user.books.group(:author).count
     return authors.sort_by {|k,v| v}.reverse[0..4]
+  end
+
+  def num_pages_graph()
+    num_pages = current_user.books.map do |book|
+      book.pages
+    end
+    num_pages.delete(nil)
+
+    max_pages = (num_pages.max/100)*100
+    p num_pages
+    p max_pages
+
+    data_container = []
+    ((max_pages/100)+1).times do |i|
+      data_container << ["#{i*100}- #{(i+1)*100 -1}", 0]
+    end
+
+    num_pages.each do |pages|
+      location = (pages / 100)
+      data_container[location][1] += 1
+    end
+
+    return data_container
   end
 
 
