@@ -270,3 +270,8 @@ select{
   text-align: center;
   color: #687B85;
 }
+
+.home {
+  display: inline;
+  color: #FF9D4E;
+}

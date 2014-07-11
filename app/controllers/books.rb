@@ -1,6 +1,8 @@
 #----------- add-book -----------
 
 post '/add_book' do
+  redirect to('/error') if !current_user
+
   book_info = Book.get_book_info(params[:book_title])
 
   if book_info == 0
@@ -14,6 +16,8 @@ post '/add_book' do
 end
 
 get '/list' do
+  redirect to('/error') if !current_user
+
   @books = current_user.books.reverse
   erb :list_books
 end
@@ -22,11 +26,15 @@ end
 #---------- edit book info -------
 
 get '/book/:id' do
+  redirect to('/error') if !current_user
+
   @book = Book.find(params[:id])
   erb :edit_book
 end
 
 post '/book/:id' do
+  redirect to('/error') if !current_user
+
   book_info = {
     title: params[:title],
     author: params[:author],
@@ -41,6 +49,8 @@ post '/book/:id' do
 end
 
 post '/delete/:id' do
+  redirect to('/error') if !current_user
+
   Book.find(params[:id]).destroy
   redirect to '/list'
 end
