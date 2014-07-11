@@ -3,7 +3,18 @@ $(document).ready(function () {
   getEbookData();
   getAuthorData();
   getNumPagesData();
+  getAuthorGenderData();
 });
+
+var getAuthorGenderData = function(){
+  var ajaxRequest = $.ajax({
+    url: '/author_gender',
+    type: 'GET'
+  })
+  ajaxRequest.success(function(data){
+    graphAuthorGenderData(data)
+  })
+}
 
 var getNumPagesData = function(){
   var ajaxRequest = $.ajax({
@@ -172,7 +183,7 @@ var graphPublicationYearData = function(data){
     colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
 
     title: {
-      text: 'Number of Books Read by Publication Year'
+      text: 'Number of Books by Publication Year'
     },
     xAxis: {
       type: 'category',
@@ -227,7 +238,45 @@ var graphEbookData= function(data){
           },
           colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
           title: {
-            text: ''
+            text: 'Ebooks'
+          },
+
+          tooltip: {
+            pointFormat: '<b>{point.percentage:.1f}%</b>'
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+              }
+            }
+          },
+          series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: data
+          }]
+        });
+
+}
+
+var graphAuthorGenderData= function(data){
+
+  $('#author_gender').highcharts({
+    chart: {
+      plotBackgroundColor: null,
+            plotBorderWidth: 0,//null,
+            plotShadow: false
+          },
+          colors: ["#ff8e4e", "#ff9d4e", "#ffac4e", "#ffbb4e", "#ffc94e"],
+          title: {
+            text: 'Author Gender'
           },
           tooltip: {
             pointFormat: '<b>{point.percentage:.1f}%</b>'
