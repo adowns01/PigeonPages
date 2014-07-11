@@ -64,8 +64,10 @@ var graphAuthorData = function(data){
       min: 0,
       title: {
         text: 'Number of Books'
-      }
+      },
+
     },
+
     legend: {
       enabled: false
     },
@@ -77,15 +79,12 @@ var graphAuthorData = function(data){
       data: data,
       dataLabels: {
         enabled: true,
-        rotation: -90,
-        color: '#FFFFFF',
-        align: 'right',
+        color: 'black',
+        align: 'center',
         x: 4,
-        y: 10,
         style: {
-          fontSize: '13px',
-          fontFamily: 'Verdana, sans-serif',
-          textShadow: '0 0 3px black'
+          fontSize: '18px',
+          fontFamily: 'Verdana, sans-serif'
         }
       }
     }]
@@ -141,15 +140,12 @@ var graphPublicationYearData = function(data){
       data: data,
       dataLabels: {
         enabled: true,
-        rotation: -90,
-        color: '#FFFFFF',
-        align: 'right',
+        color: 'black',
+        align: 'center',
         x: 4,
-        y: 10,
         style: {
-          fontSize: '13px',
-          fontFamily: 'Verdana, sans-serif',
-          textShadow: '0 0 3px black'
+          fontSize: '18px',
+          fontFamily: 'Verdana, sans-serif'
         }
       }
     }]

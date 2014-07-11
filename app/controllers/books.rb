@@ -26,7 +26,7 @@ end
 #---------- edit book info -------
 
 get '/book/:id' do
-  redirect to('/error') if !current_user
+  redirect to('/error') if !current_user || !your_book?(params[:id])
 
   @book = Book.find(params[:id])
   erb :edit_book

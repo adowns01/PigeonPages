@@ -22,4 +22,8 @@ helpers do
     end
   end
 
+  def your_book?(id)
+    return !current_user.books.where('book_id = ?', id).empty?
+  end
+
 end
